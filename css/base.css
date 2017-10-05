@@ -1,5 +1,9 @@
 body {
-	background-image: url(../photo/back.jpg);
 	background-repeat: no-repeat;
 	background-size: 100% auto;
+	background-image: -webkit-linear-gradient(270deg,rgba(114,204,255,1.00) 0%,rgba(0,92,255,1.00) 100%);
+	background-image: -moz-linear-gradient(270deg,rgba(114,204,255,1.00) 0%,rgba(0,92,255,1.00) 100%);
+	background-image: -o-linear-gradient(270deg,rgba(114,204,255,1.00) 0%,rgba(0,92,255,1.00) 100%);
+	background-image: linear-gradient(180deg,rgba(114,204,255,1.00) 0%,rgba(0,92,255,1.00) 100%);
+	background-attachment: fixed;
 }
