@@ -44,9 +44,9 @@ body {
               <li><a href="index.html">主页</a></li>
               <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">帖子<b class="caret"></b> </a>
                 <ul class="dropdown-menu">
-                  <li><a href="topic.html">全部帖子</a></li>
+                  <li><a href="topic/topic.html">全部帖子</a></li>
                   <li class="divider"></li>
-					<li><a href="resource.html">资源</a></li>
+					<li><a href="resource/resource.html">资源</a></li>
                 </ul>
               </li>
               <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于<b class="caret"></b> </a>
@@ -62,20 +62,52 @@ body {
       </nav>
       <div style="text-align: center;">
         <div class="col-xs-12">
-          <h1>Air</h1>
+			<div id="myCarousel" class="carousel slide">
+	
+	<!-- 轮播（Carousel）项目 -->
+	<div class="carousel-inner">
+		<div class="item active">
+			<h1>Air</h1>
           <h2>独上高楼，望尽天涯路</h2>
           <br>
+		</div>
+		<div class="item">
+			<h2>管理员懒到没有写到这</h2>
+			<br>
+		</div>
+		<div class="item">
+			<h2>管理员懒到没有写到这</h2>
+			<br>
+		</div>
+	</div>
+	<br>
+	<!-- 轮播（Carousel）指标 -->
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+	</ol>   
+	<!-- 轮播（Carousel）导航 -->
+	<a class="carousel-control left" href="#myCarousel" 
+	   data-slide="prev">&lsaquo;</a>
+	<a class="carousel-control right" href="#myCarousel" 
+	   data-slide="next">&rsaquo;</a>
+</div> 
+          <br>
         </div>
-        <div class="col-xs-4"><a href="topic.html"><img src="photo/topic.png" alt="topic">
+        <div class="col-xs-4"><a href="topic/topic.html"><img src="photo/topic.png" alt="topic">
           <h3>帖子</h3>
           </a></div>
-        <div class="col-xs-4"><a href="resource.html"><img src="photo/resource.png" alt="resource">
+        <div class="col-xs-4"><a href="resource/resource.html"><img src="photo/resource.png" alt="resource">
           <h3>资源</h3>
           </a></div>
         <div class="col-xs-4"><a href="about.html"><img src="photo/about.png" alt="about">
           <h3>关于</h3>
           </a></div>
       </div>
+	<footer class="modal-footer">
+		<p class="footer text-center">powered by 一叶舟</p>
+		</footer>
     </div>
   </div>
 </div>

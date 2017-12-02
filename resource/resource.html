@@ -3,22 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>团队</title>
+<title>资源</title>
 <link href="../bootstrap3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="../bootstrap3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <script src="../bootstrap3/jquery/jquery-3.2.1.min.js"></script>
 <script src="../bootstrap3/js/bootstrap.min.js"></script>
-<style type="text/css">
-
-</style>
+<style type="text/css"></style>
 </head>
 
 <body>
 <div class="container">
-<div class="row">
-<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
- 	<nav class="navbar navbar-default" role="navigation">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-navbar-collapse"> <span class="sr-only">切换</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
@@ -28,9 +26,9 @@
               <li><a href="../index.html">主页</a></li>
               <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">帖子<b class="caret"></b> </a>
                 <ul class="dropdown-menu">
-                  <li><a href="topic.html">全部帖子</a></li>
+                  <li><a href="../topic.html">全部帖子</a></li>
                   <li class="divider"></li>
-					<li><a href="../resource/resource.html">资源</a></li>
+                  <li><a href="../resource/resource.html">资源</a></li>
                 </ul>
               </li>
               <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于<b class="caret"></b> </a>
@@ -44,18 +42,41 @@
           </div>
         </div>
       </nav>
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <p>现在就我一个人（孤独），快加入我（们）吧，<a href="connext.html">联系方式</a>。</p>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">分类</h3>
         </div>
-    </div>
-    <footer style="opacity:0.7;" class="panel panel-default">
-   <div class="panel-body">
+        <div class="panel-body"> <a href="#movie">
+          <button type="button" class="btn btn-info">视频</button>
+          </a> &nbsp; </div>
+      </div>
+      <div id="movie" class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">视频</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-hover">
+            <tbody>
+              <tr>
+                <td><a href="m0001.html">一个崩崩崩的视频（帮朋友推荐）</a></td>
+              </tr>
+              <tr>
+                <td><a href="m0002.html">大铮之死</a></td>
+              </tr>
+              <tr>
+                <td>unknown</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <footer style="opacity:0.7;" class="panel panel-default">
+        <div class="panel-body">
           <p class="text-center">powered by 一叶舟</p>
-   </div>
-</footer>
-</div>
-</div>
+        </div>
+      </footer>
+    </div>
+  </div>
 </div>
 </body>
 </html>
