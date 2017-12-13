@@ -9,6 +9,15 @@
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <script src="../bootstrap3/jquery/jquery-3.2.1.min.js"></script>
 <script src="../bootstrap3/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	function key()
+	{
+        var k="1234";
+        k.select();
+        document.execCommand("Copy");
+        alert("已复制");
+    }
+</script>
 <style type="text/css"></style>
 </head>
 
@@ -69,7 +78,10 @@
         <div class="panel-heading">
           <h3 class="panel-title"> 源 </h3>
         </div>
-        <div class="panel-body"> </div>
+        <div class="panel-body">
+		  <button type="button" class="btn btn-primary">百度云</button>
+		  <button type="button" class="btn btn-info" onClick="key()">复制密码</button>
+        </div>
       </div>
       <footer style="opacity:0.7;" class="panel panel-default">
         <div class="panel-body">
