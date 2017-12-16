@@ -9,7 +9,16 @@
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <script src="../bootstrap3/jquery/jquery-3.2.1.min.js"></script>
 <script src="../bootstrap3/js/bootstrap.min.js"></script>
-<style type="text/css"></style>
+<script src="../js/main.js"></script>
+<script src="k/tr.js"></script>
+<style type="text/css">
+#hide{
+	display: none;
+}
+#add{
+	color: #FF0000;		
+}
+</style>
 </head>
 
 <body>
@@ -26,9 +35,9 @@
               <li><a href="../index.html">主页</a></li>
               <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">帖子<b class="caret"></b> </a>
                 <ul class="dropdown-menu">
-                  <li><a href="../topic/topic.html">全部帖子</a></li>
+                  <li><a href="topic.html">全部帖子</a></li>
                   <li class="divider"></li>
-                  <li><a href="resource.html">资源</a></li>
+					<li><a href="../resource/resource.html">资源</a></li>
                 </ul>
               </li>
               <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于<b class="caret"></b> </a>
@@ -42,40 +51,29 @@
           </div>
         </div>
       </nav>
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="page-header">
-            <h2>大铮之死<br>
-              <small><span class="glyphicon glyphicon-tags"></span> 视频</small> <small><span class="glyphicon glyphicon-pencil"></span> 一叶舟</small> </h2>
-          </div>
-          <table class="table">
-            <caption>
-            基本信息
-            </caption>
-            <tbody>
-              <tr>
-                <td>视频名称</td>
-                <td>大铮之死</td>
-              </tr>
-              <tr>
-                <td>类型</td>
-                <td>微电影</td>
-              </tr>
-            </tbody>
-          </table>
+      <article class="panel panel-default">
+        <div class="panel-body" id="hide">
+          <header class="page-header">
+            <h2>QQ闪照的保存<br>
+              <small><span class="glyphicon glyphicon-tags"></span> 技术</small>
+              <small><span class="glyphicon glyphicon-pencil"></span> 一叶舟</small> </h2>
+          </header>
+          <p>通常在QQ的闪照只能看5秒且无法截屏。那么我们怎么才能保存闪照呢？</p>
+		  <p>1.首先打开文件管理。按照如图所示的地址打开。</p>
         </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title"> 源 </h3>
+        <div class="panel-body" id="pass">
+          <p class="text-center">本帖子需要3级权限<br>
+            请验证您的身份</p>
+          <input id="pword" class="form-group center-block" type="password" placeholder="请输入3级密码">
+          <p class="text-center" id="add"></p>
+          <button class="btn btn-primary center-block" onClick="run()">确认</button>
         </div>
-        <div class="panel-body"> </div>
-      </div>
+      </article>
       <footer style="opacity:0.7;" class="panel panel-default">
-        <div class="panel-body">
+   <div class="panel-body">
           <p class="text-center">powered by 一叶舟</p>
-        </div>
-      </footer>
+   </div>
+</footer>
     </div>
   </div>
 </div>

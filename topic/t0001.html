@@ -9,6 +9,8 @@
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <script src="../bootstrap3/jquery/jquery-3.2.1.min.js"></script>
 <script src="../bootstrap3/js/bootstrap.min.js"></script>
+<script src="../js/main.js"></script>
+<script src="k/t.js"></script>
 <style type="text/css">
 #hide{
 	display: none;
@@ -53,6 +55,7 @@
         <div class="panel-body" id="hide">
           <header class="page-header">
             <h2>运动会奇葩标语<br>
+              <small><span class="glyphicon glyphicon-tags"></span> 文章</small>
               <small><span class="glyphicon glyphicon-pencil"></span>飘</small> </h2>
           </header>
           <p>2121，一群苦逼<br>
@@ -90,18 +93,3 @@
 </div>
 </body>
 </html>
-<script language="javascript">
-function run(){
-	var x=document.getElementById("pword").value;
-	x=Number(x);
-	if(x == 1621)
-	{
-		document.getElementById("pass").style.display = "none";
-		document.getElementById("hide").style.display = "block";
-	}
-	else
-	{
-		document.getElementById("add").innerHTML = "密码错误！"
-	}
-}
-</script>
