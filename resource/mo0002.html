@@ -81,7 +81,11 @@
         </div>
         <div class="panel-body">
 		  <a href="https://pan.baidu.com/s/1eR7QOUI"><button type="button" class="btn btn-primary">百度云</button></a>
-		  <span>密码：</span><span id="keyword">qm1x</span>
+		  <span>密码：</span><span id="keyword"></span>
+		  <span id="pass">
+			  <input id="pword" class="form-inline" type="password" placeholder="请输入2级密码来获取密码">
+			  <button type="button" class="btn btn-info btn-sm small" onClick="run()">确定</button>
+          </span>
         </div>
       </div>
       <footer style="opacity:0.7;" class="panel panel-default">
@@ -94,3 +98,16 @@
 </div>
 </body>
 </html>
+<script type="text/javascript">
+function run()
+	{
+		var x=document.getElementById("pword").value,y="1621";
+		x=Number(x);
+		y=Number(y);
+		if(x==y)
+			{
+				document.getElementById("keyword").innerHTML="qm1x";
+				document.getElementById("pass").style.display="none";
+			}
+	}
+</script>
