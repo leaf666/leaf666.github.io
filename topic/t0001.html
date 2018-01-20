@@ -10,86 +10,71 @@
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="../js/main.js"></script>
-<script src="k/t.js"></script>
-<style type="text/css">
-#hide{
-	display: none;
-}
-	#add{
-	color: #FF0000;		
-	}
-</style>
 </head>
 
 <body>
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-navbar-collapse"> <span class="sr-only">切换</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand">Air</a> </div>
-          <div class="collapse navbar-collapse" id="nav-navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="../index.html">主页</a></li>
-              <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">帖子<b class="caret"></b> </a>
-                <ul class="dropdown-menu">
-                  <li><a href="topic.html">全部帖子</a></li>
-                  <li class="divider"></li>
-					<li><a href="../resource/resource.html">资源</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于<b class="caret"></b> </a>
-                <ul class="dropdown-menu">
-                  <li><a href="../about/connext.html">联系我们</a></li>
-                  <li><a href="../about/team.html">团队</a></li>
-                  <li><a href="../about/thanks.html">鸣谢</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-navbar-collapse"> <span class="sr-only">切换</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                        <a class="navbar-brand">Air</a> </div>
+                    <div class="collapse navbar-collapse" id="nav-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="../index.html">主页</a></li>
+                            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">帖子<b class="caret"></b> </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="topic.html">全部帖子</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="../resource/resource.html">资源</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于<b class="caret"></b> </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../about/connext.html">联系我们</a></li>
+                                    <li><a href="../about/team.html">团队</a></li>
+                                    <li><a href="../about/thanks.html">鸣谢</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="panel panel-default">
+                <div class="panel-body">
+					<article id="karticle">
+                    <header class="page-header">
+                        <h2>运动会奇葩标语<br>
+                            <small><span class="glyphicon glyphicon-tags"></span> 文章</small> <small><span class="glyphicon glyphicon-pencil"></span>飘</small> <small><span class="glyphicon glyphicon-lock"></span><span id="level">2</span>级</small> </h2>
+                    </header>
+                    <p>2121，一群苦逼<br>
+                        周末补课，国庆自习<br>
+                        罪魁祸首，老韩无疑</p>
+                    <p>2121,没有假期<br>
+                        修仙成瘾，邪教盛行</p>
+                    <p>二十一班真不孬，数学老师引风骚<br>
+                        这个小题很简单，千万不要做得孬<br>
+                        找个同学问一下，数学答案马上到<br>
+                        A C B D A C D，是 A 是 B 分不清<br>
+                        拼死拼活讲半天，最终答案不知道<br>
+                        别人放假你别跑，去上自习你报道<br>
+                        王者荣耀刚开局，最强打野就来到<br>
+                        自带隐身这特效，团灭五人你别笑<br>
+                        运动会上你别虚，实在不行老韩上<br>
+                        吓得万人直发笑，倒数第一也挺好<br>
+                    </p></article>
+                </div>
+            </div>
+            <footer style="opacity:0.7;" class="panel panel-default">
+                <div class="panel-body">
+                    <p class="text-center">powered by 一叶舟</p>
+                </div>
+            </footer>
         </div>
-      </nav>
-      <article class="panel panel-default">
-        <div class="panel-body" id="hide">
-          <header class="page-header">
-            <h2>运动会奇葩标语<br>
-              <small><span class="glyphicon glyphicon-tags"></span> 文章</small>
-              <small><span class="glyphicon glyphicon-pencil"></span>飘</small> </h2>
-          </header>
-          <p>2121，一群苦逼<br>
-          周末补课，国庆自习<br>
-          罪魁祸首，老韩无疑</p>
-          <p>2121,没有假期<br>
-          修仙成瘾，邪教盛行</p>
-          <p>二十一班真不孬，数学老师引风骚<br>
-          这个小题很简单，千万不要做得孬<br>
-          找个同学问一下，数学答案马上到<br>
-          A C B D A C D，是 A 是 B 分不清<br>
-          拼死拼活讲半天，最终答案不知道<br>
-          别人放假你别跑，去上自习你报道<br>
-          王者荣耀刚开局，最强打野就来到<br>
-          自带隐身这特效，团灭五人你别笑<br>
-          运动会上你别虚，实在不行老韩上<br>
-          吓得万人直发笑，倒数第一也挺好<br>
-          </p>
-        </div>
-        <div class="panel-body" id="pass">
-          <p class="text-center">本帖子需要2级权限<br>
-            请验证您的身份</p>
-          <input id="pword" class="form-group center-block" type="password" placeholder="请输入2级密码">
-          <p class="text-center" id="add"></p>
-          <button class="btn btn-primary center-block" onClick="run()">确认</button>
-        </div>
-      </article>
-      <footer style="opacity:0.7;" class="panel panel-default">
-   <div class="panel-body">
-          <p class="text-center">powered by 一叶舟</p>
-   </div>
-</footer>
     </div>
-  </div>
 </div>
 </body>
 </html>
+<script src="../js/kunsafe.js"></script>
