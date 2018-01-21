@@ -54,7 +54,7 @@ function kact() {
 	if (lread !== 0 && lread < lneed) {
 		var y = document.getElementById("add");
 		y.setAttribute("class", "alert alert-danger alert-dismissable center-block");
-		y.innerHTML = "你的权限不足，本贴需要要" + lneed + "级密码。";
+		y.innerHTML = "你的权限不足，本贴需要" + lneed + "级及以上权限。";
 		re();
 	}
 	if (lread >= lneed) {
