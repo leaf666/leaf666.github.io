@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>资源</title>
+<title>Air</title>
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <link href="../css/base.css" rel="stylesheet" type="text/css">
@@ -27,7 +27,7 @@
               <li><a href="../index.html">主页</a></li>
               <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">帖子<b class="caret"></b> </a>
                 <ul class="dropdown-menu">
-                  <li><a href="../topic.html">全部帖子</a></li>
+                  <li><a href="topic.html">全部帖子</a></li>
                   <li class="divider"></li>
                   <li><a href="../resource/resource.html">资源</a></li>
                 </ul>
@@ -44,31 +44,24 @@
         </div>
       </nav>
       <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">分类</h3>
-        </div>
-        <div class="panel-body"> <a href="#movie">
-          <button type="button" class="btn btn-info">视频</button>
-          </a> &nbsp; </div>
-      </div>
-      <div id="movie" class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">视频</h3>
-        </div>
         <div class="panel-body">
-          <table class="table table-hover">
-            <tbody>
-              <tr>
-                <td><a href="../topic/610001.html">一个崩崩崩的视频（帮朋友推荐）</a></td>
-              </tr>
-              <tr>
-                <td><a href="../topic/610002.html">大铮之死</a></td>
-              </tr>
-              <tr>
-                <td>unknown</td>
-              </tr>
-            </tbody>
-          </table>
+          <div id="kposition">
+            <article id="karticle">
+              <header class="page-header">
+                <h2>QQ闪照的保存<br>
+                  <small><span class="glyphicon glyphicon-tags"></span> 技术</small> <small><span class="glyphicon glyphicon-pencil"></span> 一叶舟</small> <small><span class="glyphicon glyphicon-lock"></span><span id="level">1</span>级</small></h2>
+              </header>
+              <p>通常在QQ的闪照只能看5秒且无法截屏。那么我们怎么才能保存闪照呢？</p>
+              <p>1.首先打开文件管理。按照如图所示的地址打开。<img class="img-responsive" src="img-30001/i-1.jpg" alt="01"></p>
+              <p>2.切换到QQ，打开闪照，保持图示状态（不要按）。<img class="img-responsive" src="img-30001/i-2.jpg" alt="02"><br>
+                <img class="img-responsive" src="img-30001/i-3.jpg" alt="03"></p>
+              <p>3.切换到文件管理，会发现多了一个文件（以_fp结尾），点按打开，选择图像，然后用图库查看，或者发送给好友。<img class="img-responsive" src="img-30001/i-4.jpg" alt="04"><br>
+                <img class="img-responsive" src="img-30001/i-5.jpg" alt="05"><br>
+                <img class="img-responsive" src="img-30001/i-6.jpg" alt="06"><br>
+                <img class="img-responsive" src="img-30001/i-7.jpg" alt="06"></p>
+              <p>就是这样，喵~</p>
+            </article>
+          </div>
         </div>
       </div>
       <footer style="opacity:0.7;" class="panel panel-default">
@@ -81,3 +74,4 @@
 </div>
 </body>
 </html>
+<script src="../js/k.js"></script>

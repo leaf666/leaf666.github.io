@@ -17,7 +17,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-     <nav class="navbar navbar-default" role="navigation">
+      <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-navbar-collapse"> <span class="sr-only">切换</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
@@ -27,9 +27,9 @@
               <li><a href="../index.html">主页</a></li>
               <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">帖子<b class="caret"></b> </a>
                 <ul class="dropdown-menu">
-                  <li><a href="../topic/topic.html">全部帖子</a></li>
+                  <li><a href="topic.html">全部帖子</a></li>
                   <li class="divider"></li>
-					<li><a href="resource.html">资源</a></li>
+                  <li><a href="../resource/resource.html">资源</a></li>
                 </ul>
               </li>
               <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于<b class="caret"></b> </a>
@@ -45,24 +45,25 @@
       </nav>
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="page-header">
+          <article>
             <h2>一个崩崩崩的视频（帮朋友推荐）<br>
-              <small><span class="glyphicon glyphicon-tags"></span> 视频</small> <small><span class="glyphicon glyphicon-pencil"></span> 一叶舟</small> </h2>
-          </div>
-          <table class="table">
-	<caption> 基本信息</caption>
-   <tbody>
-      <tr>
-         <td>视频名称</td>
-         <td>【燃向/混剪】不做点东西对不起这游戏呀～</td>
-      </tr>
-      <tr>
-         <td>持续时间</td>
-         <td>00：03：50</td>
-      </tr>
-   </tbody>
-</table>
-
+              <small><span class="glyphicon glyphicon-tags"></span> 视频</small> <small><span class="glyphicon glyphicon-pencil"></span> 一叶舟</small> <small><span class="glyphicon glyphicon-lock"></span><span id="level">0</span>级</small> </h2>
+            <table class="table">
+              <caption>
+              基本信息
+              </caption>
+              <tbody>
+                <tr>
+                  <td>视频名称</td>
+                  <td>【燃向/混剪】不做点东西对不起这游戏呀～</td>
+                </tr>
+                <tr>
+                  <td>持续时间</td>
+                  <td>00：03：50</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
         </div>
       </div>
       <div class="panel panel-default">
@@ -70,18 +71,21 @@
           <h3 class="panel-title"> 源 </h3>
         </div>
         <div class="panel-body">
-        <a href="https://www.bilibili.com/video/av15066136/" target="_blank">
-        <button type="button" class="btn btn-primary">Bilibili</button></a>
-		  
+          <div id="kposition">
+            <div id="karticle"><a href="https://www.bilibili.com/video/av15066136/" target="_blank">
+              <button type="button" class="btn btn-primary">Bilibili</button>
+              </a></div>
+          </div>
         </div>
       </div>
-   <footer style="opacity:0.7;" class="panel panel-default">
-   <div class="panel-body">
+      <footer style="opacity:0.7;" class="panel panel-default">
+        <div class="panel-body">
           <p class="text-center">powered by 一叶舟</p>
-   </div>
-</footer> 
+        </div>
+      </footer>
     </div>
   </div>
 </div>
 </body>
 </html>
+<script src="../js/k.js"></script>

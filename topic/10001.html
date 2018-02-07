@@ -3,22 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Air</title>
+<title>建站感想</title>
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="../js/main.js"></script>
-<script type="text/javascript">
-	function key()
-	{
-        var k="1234";
-        k.select();
-        document.execCommand("Copy");
-        alert("已复制");
-    }
-</script>
 <style type="text/css"></style>
 </head>
 
@@ -36,9 +27,9 @@
               <li><a href="../index.html">主页</a></li>
               <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">帖子<b class="caret"></b> </a>
                 <ul class="dropdown-menu">
-                  <li><a href="../topic/topic.html">全部帖子</a></li>
+                  <li><a href="topic.html">全部帖子</a></li>
                   <li class="divider"></li>
-                  <li><a href="resource.html">资源</a></li>
+                  <li><a href="../resource/resource.html">资源</a></li>
                 </ul>
               </li>
               <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于<b class="caret"></b> </a>
@@ -54,38 +45,17 @@
       </nav>
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="page-header">
-            <h2>大铮之死<br>
-              <small><span class="glyphicon glyphicon-tags"></span> 视频</small> <small><span class="glyphicon glyphicon-pencil"></span> 一叶舟</small> </h2>
+          <div id="kposition">
+            <article id="karticle">
+              <div class="page-header">
+                <h2> 建站感想<br>
+                  <small><span class="glyphicon glyphicon-tags"></span> 公告</small> <small><span class="glyphicon glyphicon-pencil"></span>一叶舟</small> <small><span class="glyphicon glyphicon-lock"></span><span id="level">0</span>级</small> </h2>
+              </div>
+              <p>终于的终于，我写了这个静态网站（别问我为什么是省事又省力的静态），内心非常激动。</p>
+              <p>这个网站的发展，关于维护不维护，更新不更新，都不好说，全看站长的心情了。</p>
+              <p>还有，本网站不是一个特别正规的网站（感谢GitHub）。</p>
+            </article>
           </div>
-          <table class="table">
-            <caption>
-            基本信息
-            </caption>
-            <tbody>
-              <tr>
-                <td>视频名称</td>
-                <td>大铮之死</td>
-              </tr>
-              <tr>
-                <td>类型</td>
-                <td>微电影</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title"> 源 </h3>
-        </div>
-        <div class="panel-body">
-		  <a href="https://pan.baidu.com/s/1eR7QOUI"><button type="button" class="btn btn-primary">百度云</button></a>
-		  <span>密码：</span><span id="keyword"></span>
-		  <span id="pass">
-			  <input id="pword" class="form-inline" type="password" placeholder="请输入2级密码来获取密码">
-			  <button type="button" class="btn btn-info btn-sm small" onClick="run()">确定</button>
-          </span>
         </div>
       </div>
       <footer style="opacity:0.7;" class="panel panel-default">
@@ -98,16 +68,4 @@
 </div>
 </body>
 </html>
-<script type="text/javascript">
-function run()
-	{
-		var x=document.getElementById("pword").value,y="1621";
-		x=Number(x);
-		y=Number(y);
-		if(x==y)
-			{
-				document.getElementById("keyword").innerHTML="qm1x";
-				document.getElementById("pass").style.display="none";
-			}
-	}
-</script>
+<script src="../js/k.js"></script>
