@@ -10,7 +10,26 @@
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="../js/main.js"></script>
-<style type="text/css"></style>
+<script type="text/javascript">
+	if (window.XMLHttpRequest){
+  // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+  xhttp=new XMLHttpRequest();
+	}
+	else{
+  // IE6, IE5 浏览器执行代码
+  xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhttp.open("GET","xml/topic.xml",false);
+	xhttp.send();
+	xmlDoc=xhttp.responseXML;
+</script>
+<style type="text/css">
+#ptype {
+	max-width: 100px;
+	display: inline;
+	margin-left: 12px;
+}
+</style>
 </head>
 
 <body>
@@ -44,66 +63,24 @@
         </div>
       </nav>
       <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">分类</h3>
+        <div class="panel-heading"> <span>帖子</span>
+          <select id="ptype" class="form-control">
+            <option>全部</option>
+            <option>公告</option>
+            <option>文章</option>
+            <option>技术</option>
+            <option>杂文</option>
+            <option>资源</option>
+          </select>
         </div>
         <div class="panel-body">
-         <a href="#notice"><button type="button" class="btn btn-info">公告</button></a>
-         &nbsp;
-         <a href="#txt"><button type="button" class="btn btn-success">文章</button></a>
-         &nbsp;
-         <a href="#infor"><button type="button" class="btn btn-info">技术</button></a>
-         </div>
-      </div>
-      <div id="notice" class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">公告</h3>
-        </div>
-        <div class="panel-body">
-          <table class="table table-hover">
-            <tbody>
-              <tr>
-                <td><a href="10001.html">欢迎来到Air</a></td>
-              </tr>
-              <tr>
-                <td>unknown</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div id="txt" class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">文章</h3>
-        </div>
-        <div class="panel-body">
-          <table class="table table-hover">
-            <tbody>
-              <tr>
-                <td><a href="20001.html">运动会奇葩标语</a></td>
-              </tr>
-              <tr>
-                <td>unknown</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div id="infor" class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">技术</h3>
-        </div>
-        <div class="panel-body">
-          <table class="table table-hover">
-            <tbody>
-              <tr>
-                <td><a href="30001.html">QQ闪照的保存</a></td>
-              </tr>
-              <tr>
-                <td>unknown</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="list-group">
+            <div id="list"></div>
+            <ul class="pager">
+              <li class="previous"><a>上一页</a></li>
+              <li class="next"><a>下一页</a></li>
+            </ul>
+          </div>
         </div>
       </div>
       <footer style="opacity:0.7;" class="panel panel-default">
@@ -116,3 +93,20 @@
 </div>
 </body>
 </html>
+<script type="text/javascript">
+	var list=document.getElementById("list");
+	var n=xmlDoc.getElementsByTagName("page").length;
+	var i=0,p=1;
+	var a;
+	while(i<10 && i<n)
+		{
+			a=document.createElement("a");
+			list.appendChild(a);
+			a.setAttribute("id", i);
+			a.setAttribute("class","list-group-item");
+			a.innerHTML=xmlDoc.getElementsByTagName("title")[i].childNodes[0].nodeValue;
+			a.setAttribute("href",xmlDoc.getElementsByTagName("anchor")[i].childNodes[0].nodeValue);
+			i++;
+		}
+  
+</script>

@@ -10,15 +10,6 @@
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="../js/main.js"></script>
-<script type="text/javascript">
-	function key()
-	{
-        var k="1234";
-        k.select();
-        document.execCommand("Copy");
-        alert("已复制");
-    }
-</script>
 <style type="text/css"></style>
 </head>
 
@@ -56,7 +47,7 @@
         <div class="panel-body">
           <div class="page-header">
             <h2>大铮之死<br>
-              <small><span class="glyphicon glyphicon-tags"></span> 视频</small> <small><span class="glyphicon glyphicon-pencil"></span> 一叶舟</small> </h2>
+              <small><span class="glyphicon glyphicon-tags"></span> 视频</small> <small><span class="glyphicon glyphicon-pencil"></span> 一叶舟</small> <small><span class="glyphicon glyphicon-lock"></span><span id="level">2</span>级</small></h2>
           </div>
           <table class="table">
             <caption>
@@ -79,9 +70,13 @@
         <div class="panel-heading">
           <h3 class="panel-title"> 源 </h3>
         </div>
-        <div class="panel-body"> <a href="https://pan.baidu.com/s/1eR7QOUI">
-          <button type="button" class="btn btn-primary">百度云</button>
-          </a> <span>密码：qm1x</span> </div>
+        <div class="panel-body">
+          <div id="kposition">
+            <div id="karticle"><a href="https://pan.baidu.com/s/1eR7QOUI">
+              <button type="button" class="btn btn-primary">百度云</button>
+              </a> <span>密码：qm1x</span></div>
+          </div>
+        </div>
       </div>
       <footer style="opacity:0.7;" class="panel panel-default">
         <div class="panel-body">
@@ -93,16 +88,4 @@
 </div>
 </body>
 </html>
-<script type="text/javascript">
-function run()
-	{
-		var x=document.getElementById("pword").value,y="1621";
-		x=Number(x);
-		y=Number(y);
-		if(x==y)
-			{
-				document.getElementById("keyword").innerHTML="qm1x";
-				document.getElementById("pass").style.display="none";
-			}
-	}
-</script>
+<script src="../js/k.js"></script>
