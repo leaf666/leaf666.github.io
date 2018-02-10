@@ -3,33 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>话题</title>
+<title>Air</title>
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="../js/main.js"></script>
-<script type="text/javascript">
-	if (window.XMLHttpRequest){
-  // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-  xhttp=new XMLHttpRequest();
-	}
-	else{
-  // IE6, IE5 浏览器执行代码
-  xhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xhttp.open("GET","xml/topic.xml",false);
-	xhttp.send();
-	xmlDoc=xhttp.responseXML;
-</script>
-<style type="text/css">
-#ptype {
-	max-width: 100px;
-	display: inline;
-	margin-left: 12px;
-}
-</style>
+<style type="text/css"></style>
 </head>
 
 <body>
@@ -57,23 +38,23 @@
         </div>
       </nav>
       <div class="panel panel-default">
-        <div class="panel-heading"> <span>帖子</span>
-          <select id="ptype" class="form-control">
-            <option>全部</option>
-            <option>公告</option>
-            <option>文章</option>
-            <option>技术</option>
-            <option>杂文</option>
-            <option>资源</option>
-          </select>
-        </div>
         <div class="panel-body">
-          <div class="list-group">
-            <div id="list"></div>
-            <ul class="pager">
-              <li id="lil" class="previous"><a onClick="last()">上一页</a></li>
-              <li id="lir" class="next"><a onClick="next()">下一页</a></li>
-            </ul>
+          <div id="kposition">
+            <article id="karticle">
+              <div class="page-header">
+								<h2>本站密码问题总汇<br>
+                  <small><span class="glyphicon glyphicon-tags"></span> 公告</small> <small><span class="glyphicon glyphicon-pencil"></span>一叶舟</small> <small><span class="glyphicon glyphicon-lock"></span><span id="level">0</span>级</small> </h2>
+              </div>
+              <h3>1.为什么需要密码？</h3>
+							<p>由于本站是一个半公开的网站，为了防止敏感信息的泄露，才设计了密码。</p>
+							<h3>2.为什么每页都要输入密码？</h3>
+							<p>为了不启用cookie（站长技术比较菜，cookie用的不熟）。</p>
+							<h3>3.我不知道密码怎么办？</h3>
+							<p>
+								方法一：找站长要吧，QQ联系（给不给看站长心情）<br>
+								方法二：自己动手找密码（相信有高手能找到密码，站长虽然加密了，但加密程度远远不够）
+							</p>
+            </article>
           </div>
         </div>
       </div>
@@ -87,68 +68,4 @@
 </div>
 </body>
 </html>
-<script type="text/javascript">
-	var list=document.getElementById("list");
-	var n=xmlDoc.getElementsByTagName("page").length;
-	var ai=0,p=0,istr="0";
-	var a;
-	while(ai<10 && ai<n)
-		{
-			a=document.createElement("a");
-			list.appendChild(a);
-			istr=toString(ai);
-			a.setAttribute("id", istr);
-			a.setAttribute("class","list-group-item");
-			a.innerHTML=xmlDoc.getElementsByTagName("title")[ai].childNodes[0].nodeValue;
-			a.setAttribute("href",xmlDoc.getElementsByTagName("anchor")[ai].childNodes[0].nodeValue);
-			ai++;
-			p++;
-		}
-	li();
-	function last()
-	{
-		if(p<=10)
-			{
-				alert("没有上一页了");
-			}
-		else
-			{
-				clean();
-				//从此位置开始
-			}
-	}
-	function next()
-	{
-		if(p===n)
-			{
-				alert("没有下一页了");
-			}
-		else
-			{
-				clean();
-				//从此位置开始
-			}
-	}
-	function clean()
-	{
-		var parent=document.getElementById("list"),child;
-			while(ai>0)
-				{
-					ai--;
-					istr=toString(ai);
-					child=document.getElementById(istr);
-					parent.removeChild(child);
-				}
-	}
-	function li()
-	{
-		if(p<=10)
-			{
-				document.getElementById("lil").setAttribute("class","previous disabled");
-			}
-		if(p===n)
-			{
-				document.getElementById("lir").setAttribute("class","next disabled");
-			}
-	}
-</script>
+<script src="../js/k.js"></script>

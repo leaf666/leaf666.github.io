@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+1公告
+2文章
+3技术
+4分享
+5杂文
+6资源 1视频
+-->
 <tree>
-	<number>5</number>
+	<page>
+		<class>1</class>
+		<id>0002</id>
+		<title>本站密码问题总汇</title>
+		<date>180210</date>
+		<level>0</level>
+		<anchor>10002.html</anchor>
+	</page>
 	<page>
 		<class>1</class>
 		<id>0001</id>
