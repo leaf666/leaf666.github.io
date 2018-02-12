@@ -6,8 +6,24 @@
 4分享
 5杂文
 6资源 1视频
+<page>
+		<class></class>
+		<id></id>
+		<title></title>
+		<date></date>
+		<level></level>
+		<anchor>.html</anchor>
+	</page>
 -->
 <tree>
+	<page>
+		<class>2</class>
+		<id>0002</id>
+		<title>跟风</title>
+		<date>180212</date>
+		<level>2</level>
+		<anchor>20002.html</anchor>
+	</page>
 	<page>
 		<class>1</class>
 		<id>0002</id>
