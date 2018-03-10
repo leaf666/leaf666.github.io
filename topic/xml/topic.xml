@@ -8,68 +8,68 @@
 6资源 1视频
 <page>
 		<class></class>
+		<inclass></inclass>
 		<id></id>
 		<title></title>
 		<date></date>
 		<level></level>
-		<anchor>.html</anchor>
 	</page>
 -->
 <tree>
 	<page>
 		<class>2</class>
+		<inclass>0</inclass>
 		<id>0002</id>
 		<title>跟风</title>
 		<date>180212</date>
 		<level>2</level>
-		<anchor>20002.html</anchor>
 	</page>
 	<page>
 		<class>1</class>
+		<inclass>0</inclass>
 		<id>0002</id>
 		<title>本站密码问题总汇</title>
 		<date>180210</date>
 		<level>0</level>
-		<anchor>10002.html</anchor>
 	</page>
 	<page>
 		<class>1</class>
+		<inclass>0</inclass>
 		<id>0001</id>
 		<title>建站感想</title>
 		<date>171201</date>
 		<level>0</level>
-		<anchor>10001.html</anchor>
 	</page>
 	<page>
 		<class>2</class>
+		<inclass>0</inclass>
 		<id>0001</id>
 		<title>运动会奇葩标语</title>
 		<date>171202</date>
 		<level>2</level>
-		<anchor>20001.html</anchor>
 	</page>
 	<page>
 		<class>3</class>
+		<inclass>0</inclass>
 		<id>0001</id>
 		<title>QQ闪照的保存</title>
 		<date>171203</date>
 		<level>1</level>
-		<anchor>30001.html</anchor>
 	</page>
 	<page>
-		<class>61</class>
+		<class>6</class>
+		<inclass>1</inclass>
 		<id>0001</id>
 		<title>一个崩崩崩的视频（帮朋友推荐）</title>
 		<date>171204</date>
 		<level>0</level>
-		<anchor>610001.html</anchor>
 	</page>
 	<page>
-		<class>61</class>
+		<class>6</class>
+		<inclass>1</inclass>
 		<id>0002</id>
 		<title>大铮之死</title>
 		<date>171205</date>
 		<level>2</level>
-		<anchor>610002.html</anchor>
 	</page>
 </tree>

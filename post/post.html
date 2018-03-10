@@ -3,14 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>资源</title>
+<title>话题</title>
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <link href="../css/base.css" rel="stylesheet" type="text/css">
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="../js/main.js"></script>
-<style type="text/css"></style>
+<script type="text/javascript">
+	if (window.XMLHttpRequest){
+  // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+  xhttp=new XMLHttpRequest();
+	}
+	else{
+  // IE6, IE5 浏览器执行代码
+  xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhttp.open("GET","xml/topic.xml",false);
+	xhttp.send();
+	xmlDoc=xhttp.responseXML;
+</script>
+<style type="text/css">
+#ptype {
+	max-width: 100px;
+	display: inline;
+	margin-left: 12px;
+}
+</style>
 </head>
 
 <body>
@@ -25,13 +44,7 @@
           <div class="collapse navbar-collapse" id="nav-navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="../index.html">主页</a></li>
-              <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">帖子<b class="caret"></b> </a>
-                <ul class="dropdown-menu">
-                  <li><a href="../topic.html">全部帖子</a></li>
-                  <li class="divider"></li>
-                  <li><a href="../resource/resource.html">资源</a></li>
-                </ul>
-              </li>
+              <li> <a href="topic.html">帖子</a></li>
               <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于<b class="caret"></b> </a>
                 <ul class="dropdown-menu">
                   <li><a href="../about/connext.html">联系我们</a></li>
@@ -44,31 +57,24 @@
         </div>
       </nav>
       <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">分类</h3>
-        </div>
-        <div class="panel-body"> <a href="#movie">
-          <button type="button" class="btn btn-info">视频</button>
-          </a> &nbsp; </div>
-      </div>
-      <div id="movie" class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">视频</h3>
+        <div class="panel-heading"> <span>帖子</span>
+          <select id="ptype" class="form-control">
+            <option>全部</option>
+            <option>公告</option>
+            <option>文章</option>
+            <option>技术</option>
+            <option>杂文</option>
+            <option>资源</option>
+          </select>
         </div>
         <div class="panel-body">
-          <table class="table table-hover">
-            <tbody>
-              <tr>
-                <td><a href="../topic/61-0001.html">一个崩崩崩的视频（帮朋友推荐）</a></td>
-              </tr>
-              <tr>
-                <td><a href="../topic/61-0002.html">大铮之死</a></td>
-              </tr>
-              <tr>
-                <td>unknown</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="list-group">
+            <div id="list"></div>
+            <ul class="pager">
+              <li id="lil" class="previous"><a onClick="last()">上一页</a></li>
+              <li id="lir" class="next"><a onClick="next()">下一页</a></li>
+            </ul>
+          </div>
         </div>
       </div>
       <footer style="opacity:0.7;" class="panel panel-default">
@@ -81,3 +87,68 @@
 </div>
 </body>
 </html>
+<script type="text/javascript">
+	var list=document.getElementById("list");
+	var n=xmlDoc.getElementsByTagName("page").length;
+	var ai=0,p=0,istr="0";
+	var a;
+	while(ai<10 && ai<n)
+		{
+			a=document.createElement("a");
+			list.appendChild(a);
+			istr=toString(ai);
+			a.setAttribute("id", istr);
+			a.setAttribute("class","list-group-item");
+			a.innerHTML=xmlDoc.getElementsByTagName("title")[ai].childNodes[0].nodeValue;
+			a.setAttribute("href",xmlDoc.getElementsByTagName("anchor")[ai].childNodes[0].nodeValue);
+			ai++;
+			p++;
+		}
+	li();
+	function last()
+	{
+		if(p<=10)
+			{
+				alert("没有上一页了");
+			}
+		else
+			{
+				clean();
+				
+			}
+	}
+	function next()
+	{
+		if(p===n)
+			{
+				alert("没有下一页了");
+			}
+		else
+			{
+				clean();
+				//从此位置开始
+			}
+	}
+	function clean()
+	{
+		var parent=document.getElementById("list"),child;
+			while(ai>0)
+				{
+					ai--;
+					istr=toString(ai);
+					child=document.getElementById(istr);
+					parent.removeChild(child);
+				}
+	}
+	function li()
+	{
+		if(p<=10)
+			{
+				document.getElementById("lil").setAttribute("class","previous disabled");
+			}
+		if(p===n)
+			{
+				document.getElementById("lir").setAttribute("class","next disabled");
+			}
+	}
+</script>

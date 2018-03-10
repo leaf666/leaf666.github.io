@@ -91,7 +91,7 @@
 	var list=document.getElementById("list");
 	var n=xmlDoc.getElementsByTagName("page").length;
 	var ai=0,p=0,istr="0";
-	var a;
+	var a,href;
 	while(ai<10 && ai<n)
 		{
 			a=document.createElement("a");
@@ -100,7 +100,8 @@
 			a.setAttribute("id", istr);
 			a.setAttribute("class","list-group-item");
 			a.innerHTML=xmlDoc.getElementsByTagName("title")[ai].childNodes[0].nodeValue;
-			a.setAttribute("href",xmlDoc.getElementsByTagName("anchor")[ai].childNodes[0].nodeValue);
+			href=xmlDoc.getElementsByTagName("class")[ai].childNodes[0].nodeValue+xmlDoc.getElementsByTagName("inclass")[ai].childNodes[0].nodeValue+"-"+xmlDoc.getElementsByTagName("id")[ai].childNodes[0].nodeValue+".html";
+			a.setAttribute("href",href);
 			ai++;
 			p++;
 		}
