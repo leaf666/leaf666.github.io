@@ -90,9 +90,12 @@
 <script type="text/javascript">
 	var list=document.getElementById("list");
 	var n=xmlDoc.getElementsByTagName("page").length;
-	var ai=0,p=0,istr="0";
+	var ai=0;//在本页中的位置
+	var p=0;//在xml中的位置
+	var istr="0";//数字变字符
+	var pagen=10;//
 	var a,href;
-	while(ai<10 && ai<n)
+	while(ai<pagen && ai<n)
 		{
 			a=document.createElement("a");
 			list.appendChild(a);
@@ -108,7 +111,7 @@
 	li();
 	function last()
 	{
-		if(p<=10)
+		if(p<=pagen)
 			{
 				alert("没有上一页了");
 			}
@@ -143,7 +146,7 @@
 	}
 	function li()
 	{
-		if(p<=10)
+		if(p<=pagen)
 			{
 				document.getElementById("lil").setAttribute("class","previous disabled");
 			}
