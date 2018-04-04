@@ -58,13 +58,14 @@
       </nav>
       <div class="panel panel-default">
         <div class="panel-heading"> <span>帖子</span>
-          <select id="ptype" class="form-control">
-            <option>全部</option>
-            <option>公告</option>
-            <option>文章</option>
-            <option>技术</option>
-            <option>杂文</option>
-            <option>资源</option>
+          <select id="ptype" class="form-control" onChange="refresh()">
+            <option value="0">全部</option>
+            <option value="1">公告</option>
+            <option value="2">文章</option>
+            <option value="3">技术</option>
+			<option value="4">分享</option>
+            <option value="5">杂文</option>
+            <option value="6">资源</option>
           </select>
         </div>
         <div class="panel-body">
@@ -88,69 +89,119 @@
 </body>
 </html>
 <script type="text/javascript">
+	var p=0;//页中位置
+	var xp=0;//XML中位置
+	var n=10;//每页数量
+	var cl=0;//类别 0是全部
+	var page=1;//第几页
+	var xn=xmlDoc.getElementsByTagName("page").length;//XML数量
 	var list=document.getElementById("list");
-	var n=xmlDoc.getElementsByTagName("page").length;
-	var ai=0;//在本页中的位置
-	var p=0;//在xml中的位置
-	var istr="0";//数字变字符
-	var pagen=10;//
-	var a,href;
-	while(ai<pagen && ai<n)
-		{
+	build();
+	actright();
+	fill();
+	li();
+	function refresh(){
+		p=0;
+		xp=0;
+		page=1;
+		var myselect=document.getElementById("ptype");
+		var index=myselect.selectedIndex;
+		cl=myselect.options[index].value;
+		cl=Number(cl);
+		actright();
+		fill();
+		li();
+	}
+	function build(){
+		var ij,a;
+		for(ij=0;ij<n;++ij){
 			a=document.createElement("a");
 			list.appendChild(a);
-			istr=toString(ai);
-			a.setAttribute("id", istr);
 			a.setAttribute("class","list-group-item");
-			a.innerHTML=xmlDoc.getElementsByTagName("title")[ai].childNodes[0].nodeValue;
-			href=xmlDoc.getElementsByTagName("class")[ai].childNodes[0].nodeValue+xmlDoc.getElementsByTagName("inclass")[ai].childNodes[0].nodeValue+"-"+xmlDoc.getElementsByTagName("id")[ai].childNodes[0].nodeValue+".html";
-			a.setAttribute("href",href);
-			ai++;
-			p++;
 		}
-	li();
+	}
 	function last()
 	{
-		if(p<=pagen)
+		if(page>1)
 			{
-				alert("没有上一页了");
-			}
-		else
-			{
-				clean();
-				//从此位置开始
+				actleft();
+				p=n;
+				fill();
+				li();
 			}
 	}
 	function next()
 	{
-		if(p===n)
+		if(p!=n)
 			{
-				alert("没有下一页了");
-			}
-		else
-			{
-				clean();
-				//从此位置开始
+				p=0;
+				actright();
+				fill();
+				li();
 			}
 	}
-	function clean()
-	{
-		var parent=document.getElementById("list"),child;
-			while(ai>0)
-				{
-					ai--;
-					istr=toString(ai);
-					child=document.getElementById(istr);
-					parent.removeChild(child);
+	function actright(){
+		var a,xcl;
+		if(cl===0){
+			while(p<n&&xp<xn){
+				a=document.getElementById("list").getElementsByTagName("a")[p];
+				a.innerHTML=xmlDoc.getElementsByTagName("title")[xp].childNodes[0].nodeValue;
+				a.setAttribute("href",xmlDoc.getElementsByTagName("class")[xp].childNodes[0].nodeValue+xmlDoc.getElementsByTagName("inclass")[xp].childNodes[0].nodeValue+"-"+xmlDoc.getElementsByTagName("id")[xp].childNodes[0].nodeValue+".html");
+				p++;
+				xp++;
+			}
+		}
+		else{
+			while(p<n&&xp<xn){
+				xcl=xmlDoc.getElementsByTagName("class")[xp].childNodes[0].nodeValue;
+				if(cl==xcl){
+					a=document.getElementById("list").getElementsByTagName("a")[p];
+					a.innerHTML=xmlDoc.getElementsByTagName("title")[xp].childNodes[0].nodeValue;
+					a.setAttribute("href",xmlDoc.getElementsByTagName("class")[xp].childNodes[0].nodeValue+xmlDoc.getElementsByTagName("inclass")[xp].childNodes[0].nodeValue+"-"+xmlDoc.getElementsByTagName("id")[xp].childNodes[0].nodeValue+".html");
+					p++;
 				}
+				xp++;
+			}
+		}
 	}
-	function li()
-	{
-		if(p<=pagen)
+	function actleft(){
+		var a,xcl;
+		if(cl==0){
+			while(p>=0&&xp>=0){
+				a=document.getElementById("list").getElementsByTagName("a")[p];
+				a.innerHTML=xmlDoc.getElementsByTagName("title")[xp].childNodes[0].nodeValue;
+				a.setAttribute("href",xmlDoc.getElementsByTagName("class")[xp].childNodes[0].nodeValue+xmlDoc.getElementsByTagName("inclass")[xp].childNodes[0].nodeValue+"-"+xmlDoc.getElementsByTagName("id")[xp].childNodes[0].nodeValue+".html");
+				p--;
+				xp--;
+			}
+		}
+		else{
+			while(p>=0&&xp>=0){
+				xcl=xmlDoc.getElementsByTagName("class")[xp].childNodes[0].nodeValue;
+				if(cl==xcl){
+					a=document.getElementById("list").getElementsByTagName("a")[p];
+					a.innerHTML=xmlDoc.getElementsByTagName("title")[xp].childNodes[0].nodeValue;
+					a.setAttribute("href",xmlDoc.getElementsByTagName("class")[xp].childNodes[0].nodeValue+xmlDoc.getElementsByTagName("inclass")[xp].childNodes[0].nodeValue+"-"+xmlDoc.getElementsByTagName("id")[xp].childNodes[0].nodeValue+".html");
+					p--;
+				}
+				xp--;
+			}
+		}
+	}
+	function fill(){
+		var a;
+		while(p<n){
+			a=document.getElementById("list").getElementsByTagName("a")[p];
+			a.innerHTML="这不是bug是特性（后面没有内容了）";
+			p++;
+		}
+	}
+	function li(){
+		if(page==1)
 			{
 				document.getElementById("lil").setAttribute("class","previous disabled");
 			}
-		if(p===n)
+		if(xp==xn)
 			{
 				document.getElementById("lir").setAttribute("class","next disabled");
 			}
