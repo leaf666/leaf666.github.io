@@ -10,6 +10,26 @@
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="../js/main.js"></script>
+<script src="../js/clipboard.min.js"></script>
+<script type="application/javascript">
+	function copy()
+	{
+		var c = document.getElementById("c");
+        var s=c.innerHTML;
+        var clipboard = new Clipboard('.btn', {
+            text: function() {
+                return s;
+            }
+        });
+        clipboard.on('success', function(e) {
+            alert("复制成功");
+        });
+
+        clipboard.on('error', function(e) {
+            console.log(e);
+        });
+	}
+	</script>
 <style type="text/css"></style>
 </head>
 
@@ -68,7 +88,8 @@
           <div id="kposition">
             <div id="karticle"><a href="https://pan.baidu.com/s/1eR7QOUI">
               <button type="button" class="btn btn-primary">百度云</button>
-              </a> <span>密码：qm1x</span></div>
+              </a> <span>密码：<span id="c">qm1x</span></span>
+              <button class="btn btn-sm" onClick="copy()">复制</button></div>
           </div>
         </div>
       </div>

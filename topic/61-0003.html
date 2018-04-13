@@ -10,6 +10,26 @@
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="../js/main.js"></script>
+<script src="../js/clipboard.min.js"></script>
+<script type="application/javascript">
+	function copy()
+	{
+		var c = document.getElementById("c");
+        var s=c.innerHTML;
+        var clipboard = new Clipboard('.btn', {
+            text: function() {
+                return s;
+            }
+        });
+        clipboard.on('success', function(e) {
+            alert("复制成功");
+        });
+
+        clipboard.on('error', function(e) {
+            console.log(e);
+        });
+	}
+	</script>
 <style type="text/css"></style>
 </head>
 
@@ -51,13 +71,9 @@
                   <td>视频名称</td>
                   <td>东京喰种re</td>
                 </tr>
-                <tr>
-                  <td>持续时间</td>
-                  <td>--</td>
-                </tr>
 				<tr>
                   <td>推出集数</td>
-                  <td>1</td>
+                  <td>2</td>
                 </tr>
               </tbody>
             </table>
@@ -70,13 +86,13 @@
         </div>
         <div class="panel-body">
           <div id="kposition">
-			<h4>第1集：</h4>
-            <div id="karticle"><a href="https://pan.baidu.com/s/1waUBB4YCnLzWjfp1wnfB7Q" target="_blank">
+            <div id="karticle"><a href="https://pan.baidu.com/s/1U0jW6876VB7IxmCzVC-Brg" target="_blank">
               <button type="button" class="btn btn-primary">百度云</button>
-              </a><span>密码：ba6b</span></div>
+              </a><span>密码：<span id="c">dpjk</span></span>
+              <button class="btn btn-sm" onClick="copy()">复制</button></div>
           </div>
 		  <br>
-		  <div class="alert alert-warning">由于本站为博客性质，更新可能有延迟（可能很大）</div>
+		  <div class="alert alert-warning">由于本站为博客性质，更新可能会有延迟（可能很大）</div>
         </div>
       </div>
       <footer style="opacity:0.7;" class="panel panel-default">
