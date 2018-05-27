@@ -13,7 +13,7 @@
         <div class="panel-body">
           <div class="page-header">
             <h2> ---<br>
-              <small><span class="glyphicon glyphicon-tag"></span> ---</small> <small><span class="glyphicon glyphicon-pencil"></span> ---</small> <small><span class="glyphicon glyphicon-lock"></span><span id="level">3</span></small> </h2>
+              <small><span class="glyphicon glyphicon-tag"></span> ---</small> <small><span class="glyphicon glyphicon-pencil"></span> ---</small> <small><span class="glyphicon glyphicon-lock"></span><span id="level">1</span></small> </h2>
           </div>
           <div> </div>
         </div>
@@ -23,28 +23,5 @@
   </div>
 </div>
 <script src="../js/script.js"></script>
-<script>
-if(document.getElementById("level"))
-{
-	var knle=document.getElementById("level").innerHTML;
-	var kcle=level(getCookie("pw"));
-	alert(knle);
-	alert(kcle);
-	if(kcle >= knle)
-		{
-			var i=0;
-			alert("ok");
-			while(document.getElementsByTagName("article")[i])
-				{
-					document.getElementsByTagName("article")[i].style.display = "block";
-					++i;
-				}
-		}
-	else
-		{
-			window.location.replace("login.html?"+knle);
-		}
-}
-	</script>
 </body>
 </html>
