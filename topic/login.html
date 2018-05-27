@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+<meta charset="utf-8">
+<script src="../js/head.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2"> 
+      <script src="../js/nav.js"></script>
+      <div class="panel panel-default">
+        <div class="panel-body text-center">
+          <h4>
+						您现在的权限为<span class="glyphicon glyphicon-lock"></span><span id="level"></span><br>
+						文章需要的权限为<span class="glyphicon glyphicon-lock"></span><span id="nlevel"></span><br><br>
+						请输入你的提权代码<br>
+						<input id="fpw" type="password" style="max-width: 360px;margin-bottom: 10px;margin-top: 10px;" class="form-control center-block text-center" placeholder="请输入代码" onKeyUp="tap()">
+						<div id="info" class="center-block" style="max-width: 360px;"></div>
+						<button type="button" class="btn btn-primary center-block" onClick="act()">确认</button>
+					</h4>
+        </div>
+      </div>
+      <script src="../js/footer.js"></script>
+    </div>
+  </div>
+</div>
+<script src="../js/script.js"></script>
+<script type="text/javascript">
+	function setCookie(c_name,value,expiredays)
+	{
+		var exdate=new Date();
+		exdate.setDate(exdate.getDate()+expiredays)
+		document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+	}
+	var cpw=getCookie('pw');
+	var l=level(Number(cpw));
+	var nl=location.search.substr(1);
+	var info=document.getElementById("info");
+	document.getElementById("level").innerHTML = l;
+	document.getElementById("nlevel").innerHTML = nl;
+	function act()
+	{
+		var fpw = document.getElementById("fpw").value;
+		fpw = unk(Number(fpw));
+		var fl = level(fpw);
+		if(fl == 0)
+		{
+			info.style.display="block";
+			info.setAttribute("class","center-block alert alert-danger");
+			info.innerHTML="猜的好，现在请输入正确代码";
+			window.setTimeout(del, 2000);
+		}
+		else if(fl <= l)
+		{
+			info.style.display="block";
+			info.setAttribute("class","center-block alert alert-warning");
+			info.innerHTML="您的权限似乎没有提升";
+			window.setTimeout(del, 2000);
+		}
+		else if(fl > l)
+		{
+			setCookie("pw",fpw,3600);
+			info.style.display="block";
+			info.setAttribute("class","center-block alert alert-success");
+			info.innerHTML="提权成功，1小时内有效";
+			if(fl >= nl)
+			{
+				window.history.back(-1);
+			}
+			else
+			{
+				window.location.reload();
+			}
+		}
+	}
+	function del()
+	{
+		info.style.display="none";
+	}
+	function tap()
+	{
+		if (event.keyCode === 13)
+		{
+			act();
+		}
+	}
+</script>
+</body>
+</html>

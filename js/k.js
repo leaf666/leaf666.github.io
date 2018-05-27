@@ -1,1 +1,51 @@
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('4 8=5.7("1u").c;4 z=0;8=k(8);a(8>0){O()}q O(){"o l";5.7("T").n.v="Q";4 N=5.7("Z");4 f=5.j("M");N.m(f);f.6("w","U");4 s=5.j("p");4 b=5.j("b");4 r=5.j("M");4 g=5.j("g");f.m(s);s.6("i","V-e");s.c="X"+8+"P<L>17";f.m(b);b.6("w","C");b.6("i","19-1a V-e e-h");b.6("14","Y");b.6("n","J-F: H;15-12: 10;");b.6("11","16"+8+"1b");b.6("18","K()");f.m(r);r.6("w","t");r.6("n","J-F: H");f.m(g);g.6("i","I I-1x e-h");g.c="1w";g.6("1v","u()")}q K(){"o l";a(1r.1q===13){u()}}q u(){"o l";4 x=k(5.7("C").W);4 d=0;4 E=k("1s");4 D=k("1p");4 G=k("1t");a(x===E){d=1}a(x===D){d=2}a(x===G){d=3}a(d===0){4 y=5.7("t");y.6("i","9 9-R 9-B e-h");a(z===0){y.c="1f，1g。";z++}1h{y.c=y.c+"<L>"+"1c，1d。"}A()}a(d!==0&&d<8){4 y=5.7("t");y.6("i","9 9-R 9-B e-h");y.c="1e，1i"+8+"P。";A()}a(d>=8){4 y=5.7("t");y.6("i","9 9-1m 9-B e-h");y.c="1n，1o！";1j.1k(S,1l)}}q A(){"o l";5.7("C").W=""}q S(){"o l";5.7("T").n.v="h";5.7("U").n.v="Q"}',62,96,'||||var|document|setAttribute|getElementById|lneed|alert|if|input|innerHTML|lread|center|panel|button|block|class|createElement|Number|strict|appendChild|style|use||function|padd|plead|add|kact|display|id|||attempt|re|dismissable|pword|l2|l1|width|l3|360px|btn|max|ktap|br|div|fpanel|kon|级及以上权限|none|danger|ok|karticle|kpass|text|value|本内容需要|password|kposition|10px|placeholder|bottom||type|margin|请输入|请验证您的身份|onkeyup|form|control|级及以上密码|如果不知道密码|请参考公告帖获取密码|你的权限不足|猜的好|现在请输入正确密码|else|本贴需要|window|setTimeout|800|success|密码正确|欢迎|1621|keyCode|event|1666|886686|level|onClick|确认|primary'.split('|'),0,{}))
+if(document.getElementById("level"))
+{
+	var knle=document.getElementById("level").innerHTML;
+	var kcle=level(getCookie("pw"));
+	if(kcle >= knle)
+		{
+			var i=0;
+			while(document.getElementsByTagName("article")[i])
+				{
+					document.getElementsByTagName("article")[i].style.display = "block";
+					++i;
+				}
+		}
+	else
+		{
+			window.location.replace("login.html?"+knle);
+		}
+}
+function getCookie(c_name)
+{
+	if (document.cookie.length>0)
+  	{
+  		var c_start=document.cookie.indexOf(c_name + "=")
+  		if (c_start!=-1)
+  			{ 
+					c_start=c_start + c_name.length+1 
+    			c_end=document.cookie.indexOf(";",c_start)
+    			if (c_end==-1) c_end=document.cookie.length
+					return unescape(document.cookie.substring(c_start,c_end))
+				}
+		}
+	return 0;
+}
+function level(pw)
+{
+	var le1=213*1000000+800*1000+613;
+	le1 = le1*2;
+	var le2=392*1000000+555*1000+396;
+	le2 = le2*2;
+	if(pw === le1)return 1;
+	else if(pw === le2)return 2;
+	else return 0;
+}
+function unk(a)
+{
+	a=(a*a)%1000000007;
+	a=(a*a)%1000000007;
+	a=(a*a)%1000000007;
+	a=(a*a)%1000000007;
+	return a;
+}
