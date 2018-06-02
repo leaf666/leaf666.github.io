@@ -27,15 +27,35 @@
 </div>
 <script src="../js/script.js"></script>
 <script type="text/javascript">
-	function setCookie(c_name,value,expiredays)
+	function setCookie(cname,cvalue,exhours)
 	{
-		var exdate=new Date();
-		exdate.setDate(exdate.getDate()+expiredays)
-		document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+  	var d = new Date();
+  	d.setTime(d.getTime()+(exhours*60*60*1000));
+  	var expires = "expires="+d.toGMTString();
+  	document.cookie = cname + "=" + cvalue + "; " + expires + " path=/";
+	}
+	function GetUrlParam(paraName)
+	{
+　　　var url = document.location.toString();
+　　　var arrObj = url.split("?");
+　　　if (arrObj.length > 1) {
+　　　　　var arrPara = arrObj[1].split("&");
+　　　　　var arr;
+　　　　　for (var i = 0; i < arrPara.length; i++) {
+　　　　　　　arr = arrPara[i].split("=");
+　　　　　　　if (arr != null && arr[0] == paraName) {
+　　　　　　　　　return arr[1];
+　　　　　　　}
+　　　　　}
+　　　　　return "";
+　　　}
+　　　else {
+　　　　　return "";
+　　　}
 	}
 	var cpw=getCookie('pw');
 	var l=level(Number(cpw));
-	var nl=location.search.substr(1);
+	var nl=GetUrlParam('nl');
 	var info=document.getElementById("info");
 	document.getElementById("level").innerHTML = l;
 	document.getElementById("nlevel").innerHTML = nl;
@@ -60,13 +80,13 @@
 		}
 		else if(fl > l)
 		{
-			setCookie("pw",fpw,3600);
+			setCookie("pw",fpw,1);
 			info.style.display="block";
 			info.setAttribute("class","center-block alert alert-success");
 			info.innerHTML="提权成功，1小时内有效";
 			if(fl >= nl)
 			{
-				window.history.back(-1);
+				window.location.href=GetUrlParam('href');
 			}
 			else
 			{

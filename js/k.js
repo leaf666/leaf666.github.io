@@ -1,3 +1,4 @@
+
 if(document.getElementById("level"))
 {
 	var knle=document.getElementById("level").innerHTML;
@@ -7,13 +8,15 @@ if(document.getElementById("level"))
 			var i=0;
 			while(document.getElementsByTagName("article")[i])
 				{
+					
 					document.getElementsByTagName("article")[i].style.display = "block";
 					++i;
 				}
 		}
-	else
+	if(kcle < knle)
 		{
-			window.location.replace("login.html?"+knle);
+			var u=window.location.href;
+			window.location.replace("login.html?"+"nl="+knle+"&href="+u);
 		}
 }
 function getCookie(c_name)
@@ -24,7 +27,7 @@ function getCookie(c_name)
   		if (c_start!=-1)
   			{ 
 					c_start=c_start + c_name.length+1 
-    			c_end=document.cookie.indexOf(";",c_start)
+    			var c_end=document.cookie.indexOf(";",c_start)
     			if (c_end==-1) c_end=document.cookie.length
 					return unescape(document.cookie.substring(c_start,c_end))
 				}
