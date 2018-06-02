@@ -1,8 +1,9 @@
-
 if(document.getElementById("level"))
 {
 	var knle=document.getElementById("level").innerHTML;
 	var kcle=level(getCookie("pw"));
+	alert(kcle);
+	alert(knle);
 	if(kcle >= knle)
 		{
 			var i=0;
