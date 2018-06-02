@@ -1,9 +1,8 @@
 if(document.getElementById("level"))
 {
 	var knle=document.getElementById("level").innerHTML;
-	var kcle=level(getCookie("pw"));
-	alert(kcle);
-	alert(knle);
+	var co=getCookie("pw");
+	var kcle=level(co);
 	if(kcle >= knle)
 		{
 			var i=0;
@@ -41,9 +40,19 @@ function level(pw)
 	le1 = le1*2;
 	var le2=392*1000000+555*1000+396;
 	le2 = le2*2;
-	if(pw === le1)return 1;
-	else if(pw === le2)return 2;
-	else return 0;
+	if(pw == le1)
+	{
+		return 1;
+	}
+	else if(pw == le2)
+	{
+		return 2;
+		
+	}
+	else
+	{
+		return 0;
+	}
 }
 function unk(a)
 {

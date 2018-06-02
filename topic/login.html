@@ -32,7 +32,7 @@
   	var d = new Date();
   	d.setTime(d.getTime()+(exhours*60*60*1000));
   	var expires = "expires="+d.toGMTString();
-  	document.cookie = cname + "=" + cvalue + "; " + expires + " path= /";
+  	document.cookie = cname + "=" + cvalue + "; " + expires + " path=/";
 	}
 	function GetUrlParam(paraName)
 	{
@@ -84,6 +84,7 @@
 			info.style.display="block";
 			info.setAttribute("class","center-block alert alert-success");
 			info.innerHTML="提权成功，1小时内有效";
+			window.setTimeout(del, 2000);
 			if(fl >= nl)
 			{
 				window.location.href=GetUrlParam('href');
