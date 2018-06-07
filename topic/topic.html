@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>话题</title>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link href="../css/base.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../js/main.js"></script>
+<script type="text/javascript">
+	if (window.XMLHttpRequest){
+  // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+  xhttp=new XMLHttpRequest();
+	}
+	else{
+  // IE6, IE5 浏览器执行代码
+  xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xhttp.open("GET","xml/topic.xml",false);
+	xhttp.send();
+	xmlDoc=xhttp.responseXML;
+</script>
+<style type="text/css">
+#ptype {
+	max-width: 100px;
+	display: inline;
+	margin-left: 12px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-navbar-collapse"> <span class="sr-only">切换</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <a class="navbar-brand">Air</a> </div>
+          <div class="collapse navbar-collapse" id="nav-navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="../index.html">主页</a></li>
+              <li> <a href="topic.html">帖子</a></li>
+              <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于<b class="caret"></b> </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../about/connext.html">联系我们</a></li>
+                  <li><a href="../about/team.html">团队</a></li>
+                  <li><a href="../about/thanks.html">鸣谢</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="panel panel-default">
+        <div class="panel-heading"> <span>帖子</span>
+          <select id="ptype" class="form-control" onChange="refresh()">
+            <option value="0">全部</option>
+            <option value="1">公告</option>
+            <option value="2">文章</option>
+            <option value="3">技术</option>
+			<option value="4">分享</option>
+            <option value="5">杂文</option>
+            <option value="6">资源</option>
+          </select>
+        </div>
+        <div class="panel-body">
+          <div class="list-group">
+            <div id="list"></div>
+            <ul class="pager">
+              <li id="lil" class="previous"><a onClick="last()">上一页</a></li>
+              <li id="lir" class="next"><a onClick="next()">下一页</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <footer style="opacity:0.7;" class="panel panel-default">
+        <div class="panel-body">
+          <p class="text-center">powered by 一叶舟</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	var p=0;//页中位置
+	var xp=0;//XML中位置
+	var n=10;//每页数量
+	var cl=0;//类别 0是全部
+	var page=1;//第几页
+	var xn=xmlDoc.getElementsByTagName("page").length;//XML数量
+	var list=document.getElementById("list");
+	build();
+	actright();
+	fill();
+	li();
+	function refresh(){
+		p=0;
+		xp=0;
+		page=1;
+		var myselect=document.getElementById("ptype");
+		var index=myselect.selectedIndex;
+		cl=myselect.options[index].value;
+		cl=Number(cl);
+		actright();
+		fill();
+		li();
+	}
+	function build(){
+		var ij,a;
+		for(ij=0;ij<n;++ij){
+			a=document.createElement("a");
+			list.appendChild(a);
+			a.setAttribute("class","list-group-item");
+		}
+	}
+	function last()
+	{
+		if(page>1)
+			{
+				actleft();
+				p=n;
+				fill();
+				li();
+			}
+	}
+	function next()
+	{
+		if(p!=n)
+			{
+				p=0;
+				actright();
+				fill();
+				li();
+			}
+	}
+	function actright(){
+		var a,xcl;
+		if(cl===0){
+			while(p<n&&xp<xn){
+				a=document.getElementById("list").getElementsByTagName("a")[p];
+				a.innerHTML=xmlDoc.getElementsByTagName("title")[xp].childNodes[0].nodeValue;
+				a.setAttribute("href",xmlDoc.getElementsByTagName("class")[xp].childNodes[0].nodeValue+xmlDoc.getElementsByTagName("inclass")[xp].childNodes[0].nodeValue+"-"+xmlDoc.getElementsByTagName("id")[xp].childNodes[0].nodeValue+".html");
+				p++;
+				xp++;
+			}
+		}
+		else{
+			while(p<n&&xp<xn){
+				xcl=xmlDoc.getElementsByTagName("class")[xp].childNodes[0].nodeValue;
+				if(cl==xcl){
+					a=document.getElementById("list").getElementsByTagName("a")[p];
+					a.innerHTML=xmlDoc.getElementsByTagName("title")[xp].childNodes[0].nodeValue;
+					a.setAttribute("href",xmlDoc.getElementsByTagName("class")[xp].childNodes[0].nodeValue+xmlDoc.getElementsByTagName("inclass")[xp].childNodes[0].nodeValue+"-"+xmlDoc.getElementsByTagName("id")[xp].childNodes[0].nodeValue+".html");
+					p++;
+				}
+				xp++;
+			}
+		}
+	}
+	function actleft(){
+		var a,xcl;
+		if(cl==0){
+			while(p>=0&&xp>=0){
+				a=document.getElementById("list").getElementsByTagName("a")[p];
+				a.innerHTML=xmlDoc.getElementsByTagName("title")[xp].childNodes[0].nodeValue;
+				a.setAttribute("href",xmlDoc.getElementsByTagName("class")[xp].childNodes[0].nodeValue+xmlDoc.getElementsByTagName("inclass")[xp].childNodes[0].nodeValue+"-"+xmlDoc.getElementsByTagName("id")[xp].childNodes[0].nodeValue+".html");
+				p--;
+				xp--;
+			}
+		}
+		else{
+			while(p>=0&&xp>=0){
+				xcl=xmlDoc.getElementsByTagName("class")[xp].childNodes[0].nodeValue;
+				if(cl==xcl){
+					a=document.getElementById("list").getElementsByTagName("a")[p];
+					a.innerHTML=xmlDoc.getElementsByTagName("title")[xp].childNodes[0].nodeValue;
+					a.setAttribute("href",xmlDoc.getElementsByTagName("class")[xp].childNodes[0].nodeValue+xmlDoc.getElementsByTagName("inclass")[xp].childNodes[0].nodeValue+"-"+xmlDoc.getElementsByTagName("id")[xp].childNodes[0].nodeValue+".html");
+					p--;
+				}
+				xp--;
+			}
+		}
+	}
+	function fill(){
+		var a;
+		while(p<n){
+			a=document.getElementById("list").getElementsByTagName("a")[p];
+			a.innerHTML="这不是bug是特性（后面没有内容了）";
+			p++;
+		}
+	}
+	function li(){
+		if(page==1)
+			{
+				document.getElementById("lil").setAttribute("class","previous disabled");
+			}
+		if(xp==xn)
+			{
+				document.getElementById("lir").setAttribute("class","next disabled");
+			}
+	}
+</script>
